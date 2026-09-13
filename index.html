@@ -3,183 +3,299 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>India Through Time | Explore the Past</title>
-
+    <title>India Through Time</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <!-- HERO SECTION -->
+<header class="navbar">
+    <a href="index.html" class="logo">🇮🇳 INDIA THROUGH TIME</a>
 
-    <header class="hero">
+    <nav class="navlinks">
+        <a href="index.html">Home</a>
+        <a href="ancient.html">Ancient</a>
+        <a href="maurya.html">Maurya</a>
+        <a href="gupta.html">Gupta</a>
+        <a href="rajput.html">Rajput</a>
+        <a href="chola.html">Chola</a>
+        <a href="vijayanagara.html">Vijayanagara</a>
+        <a href="mughal.html">Mughal</a>
+        <a href="maratha.html">Maratha</a>
+        <a href="colonial.html">Colonial</a>
+        <a href="independence.html">1947</a>
+        <a href="culture.html">Culture</a>
+        <a href="architecture.html">Architecture</a>
+    </nav>
 
-        <div class="hero-content">
+    <div class="search">
+        <input id="searchBox" placeholder="Search history">
+        <button onclick="searchHistory()">🔎</button>
+    </div>
+</header>
 
-            <p class="eyebrow">🇮🇳 AN INTERACTIVE JOURNEY THROUGH HISTORY</p>
+<section class="hero">
 
-            <h1>INDIA<br><span>THROUGH TIME</span></h1>
+    <div class="mandala">✿</div>
 
-            <p class="hero-description">
-                Step beyond the pages of history.
-                Discover the people, places, cultures and stories
-                that shaped India.
-            </p>
+    <div class="corner corner1">❈</div>
+    <div class="corner corner2">❈</div>
 
-            <button class="explore-button" onclick="startJourney()">
-                ⏳ ENTER THE TIME MACHINE
-            </button>
+    <div class="hero-content">
 
-            <p class="quote">
-                “The past is not gone. It lives in the places,
-                traditions and stories we carry forward.”
-            </p>
-
-        </div>
-
-        <div class="scroll-hint">
-            ↓ SCROLL TO BEGIN YOUR JOURNEY ↓
-        </div>
-
-    </header>
-
-
-    <!-- TIME MACHINE SECTION -->
-
-    <section id="journey" class="journey">
-
-        <p class="section-label">THE TIME MACHINE</p>
-
-        <h2>Where would you like to travel?</h2>
-
-        <p class="section-description">
-            Choose a destination and step into another era of India.
+        <p class="eyebrow">
+            ✦ AN INTERACTIVE DIGITAL HISTORY ATLAS ✦
         </p>
 
+        <h1>INDIA</h1>
 
-        <div class="time-machine">
+        <h2>THROUGH TIME</h2>
 
-            <div class="machine-icon">
-                ⏳
-            </div>
+        <p class="hero-description">
+            Explore the history of the Indian subcontinent through
+            territories, rulers, administration, economy, agriculture,
+            trade, society, warfare, culture and architecture.
+        </p>
 
-            <h3>SELECT YOUR ERA</h3>
+        <a href="#chapters" class="main-button">
+            ⏳ ENTER THE ATLAS
+        </a>
 
-            <div class="era-buttons">
+    </div>
 
-                <button onclick="selectEra('ancient')">
-                    🏺 ANCIENT INDIA
-                </button>
-
-                <button onclick="selectEra('medieval')">
-                    🏰 MEDIEVAL INDIA
-                </button>
-
-                <button onclick="selectEra('vijayanagara')">
-                    🛕 VIJAYANAGARA
-                </button>
-
-                <button onclick="selectEra('colonial')">
-                    📜 COLONIAL ERA
-                </button>
-
-            </div>
-
-        </div>
-
-        <div id="era-result" class="era-result">
-
-    <div id="era-content"></div>
-
-</div>
-
-    </section>
+</section>
 
 
-    <!-- DISCOVER SECTION -->
+<section class="intro">
 
-    <section class="discover">
+    <p class="label">FOR HISTORY STUDENTS</p>
 
-        <p class="section-label">MORE THAN DATES</p>
+    <h2>Study India as a connected historical world.</h2>
 
-        <h2>Experience History</h2>
+    <p>
+        Instead of memorising only dates, investigate how geography
+        shaped states, how economies supported political power,
+        how societies changed, and how historians reconstruct
+        the past from evidence.
+    </p>
 
-        <div class="cards">
-
-            <div class="card">
-                <div class="card-icon">🏛️</div>
-                <h3>PLACES</h3>
-                <p>
-                    Walk through ancient cities, magnificent temples
-                    and forgotten kingdoms.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">👘</div>
-                <h3>CULTURE</h3>
-                <p>
-                    Discover clothing, food, art, music and traditions
-                    from different eras.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">👥</div>
-                <h3>PEOPLE</h3>
-                <p>
-                    Meet the rulers, traders, artists, scholars
-                    and ordinary people of the past.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">⚔️</div>
-                <h3>STORIES</h3>
-                <p>
-                    Explore the events and decisions that changed
-                    the course of Indian history.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
+</section>
 
 
-    <!-- QUOTE SECTION -->
+<section class="section" id="chapters">
 
-    <section class="quote-section">
+    <div class="section-title">
 
-        <div class="big-quote">
-            “A civilization is remembered not only by its monuments,
-            but by the lives that once filled them.”
-        </div>
+        <p>12+ CHAPTERS</p>
 
-        <p>— INDIA THROUGH TIME</p>
-
-    </section>
-
-
-    <!-- FOOTER -->
-
-    <footer>
-
-        <h3>🇮🇳 INDIA THROUGH TIME</h3>
+        <h2>Choose a Historical Journey</h2>
 
         <p>
-            Explore. Learn. Remember.
+            Click any chapter to open its detailed history page.
         </p>
 
-        <p class="copyright">
-            An interactive historical experience.
+    </div>
+
+
+    <div class="card-grid">
+
+        <a class="history-card orange" href="ancient.html">
+            <div class="icon">🏺</div>
+            <h3>Ancient India</h3>
+            <p>
+                Civilizations, cities, knowledge and early states.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card red" href="maurya.html">
+            <div class="icon">🦁</div>
+            <h3>Maurya Empire</h3>
+            <p>
+                Magadha, Chandragupta, Ashoka and imperial administration.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card purple" href="gupta.html">
+            <div class="icon">🪷</div>
+            <h3>Gupta Period</h3>
+            <p>
+                Politics, agriculture, science, literature and art.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card pink" href="rajput.html">
+            <div class="icon">🏰</div>
+            <h3>Rajput History</h3>
+            <p>
+                Regional kingdoms, forts, warfare and court culture.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card green" href="chola.html">
+            <div class="icon">🛕</div>
+            <h3>Chola Dynasty</h3>
+            <p>
+                Kaveri delta, irrigation, temples and maritime trade.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card teal" href="vijayanagara.html">
+            <div class="icon">🏛️</div>
+            <h3>Vijayanagara</h3>
+            <p>
+                Hampi, Nayakas, economy, trade and political expansion.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card violet" href="mughal.html">
+            <div class="icon">🕌</div>
+            <h3>Mughal Empire</h3>
+            <p>
+                Territory, mansabdari, revenue, trade and culture.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card orange" href="maratha.html">
+            <div class="icon">⚔️</div>
+            <h3>Maratha History</h3>
+            <p>
+                Shivaji, forts, administration and later confederacy.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card blue" href="colonial.html">
+            <div class="icon">⚓</div>
+            <h3>Colonial India</h3>
+            <p>
+                Company rule, revenue systems, economy and resistance.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card tricolor" href="independence.html">
+            <div class="icon">🇮🇳</div>
+            <h3>Independence Movement</h3>
+            <p>
+                Nationalism, mass movements, Partition and 1947.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card coral" href="culture.html">
+            <div class="icon">💃</div>
+            <h3>Indian Culture</h3>
+            <p>
+                Textiles, food, music, dance, crafts and festivals.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+
+        <a class="history-card gold" href="architecture.html">
+            <div class="icon">🏗️</div>
+            <h3>Indian Architecture</h3>
+            <p>
+                Temples, forts, palaces, water systems and engineering.
+            </p>
+            <span>OPEN CHAPTER →</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="section-title">
+
+        <p>THE HISTORIAN'S TOOLKIT</p>
+
+        <h2>Think Beyond Memorisation</h2>
+
+        <p>
+            Connect geography, politics, economy, society and evidence.
         </p>
 
-    </footer>
+    </div>
 
 
-    <script src="script.js"></script>
+    <div class="topic-grid">
+
+        <article class="topic">
+            <h3>🗺️ Geography</h3>
+            <p>
+                Rivers, mountains, coasts, forests and climate influenced
+                settlement, agriculture and political expansion.
+            </p>
+        </article>
+
+        <article class="topic">
+            <h3>💰 Economy</h3>
+            <p>
+                Study agriculture, taxation, labour, crafts,
+                markets, trade routes and resources.
+            </p>
+        </article>
+
+        <article class="topic">
+            <h3>📜 Sources</h3>
+            <p>
+                Compare inscriptions, coins, buildings, chronicles,
+                traveller accounts, official records and oral histories.
+            </p>
+        </article>
+
+    </div>
+
+</section>
+
+
+<section class="quote-section">
+
+    <h2>
+        “India's past is not one story.
+        It is a collection of connected histories.”
+    </h2>
+
+    <p>INDIA THROUGH TIME</p>
+
+</section>
+
+
+<footer>
+
+    <h2>🇮🇳 INDIA THROUGH TIME</h2>
+
+    <p>
+        Explore • Learn • Discover • Question • Connect
+    </p>
+
+    <p>
+        Digital history atlas for students.
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
