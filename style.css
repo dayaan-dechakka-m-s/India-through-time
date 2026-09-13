@@ -1,189 +1,1233 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Playfair+Display:wght@600;700;800&display=swap');
 
-    <title>India Through Time | Explore the Past</title>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-<body>
 
-    <!-- HERO SECTION -->
+html {
+    scroll-behavior: smooth;
+}
 
-    <header class="hero">
 
-        <div class="hero-content">
+body {
+    font-family: "DM Sans", Arial, sans-serif;
+    color: #3e281f;
+    background: #fff8e9;
+    line-height: 1.65;
+}
 
-            <p class="eyebrow">🇮🇳 AN INTERACTIVE JOURNEY THROUGH HISTORY</p>
 
-            <h1>INDIA<br><span>THROUGH TIME</span></h1>
+/* INDIAN PATTERN BACKGROUND */
 
-            <p class="hero-description">
-                Step beyond the pages of history.
-                Discover the people, places, cultures and stories
-                that shaped India.
-            </p>
+body::before {
 
-            <button class="explore-button" onclick="startJourney()">
-                ⏳ ENTER THE TIME MACHINE
-            </button>
+    content: "";
 
-            <p class="quote">
-                “The past is not gone. It lives in the places,
-                traditions and stories we carry forward.”
-            </p>
+    position: fixed;
 
-        </div>
+    inset: 0;
 
-        <div class="scroll-hint">
-            ↓ SCROLL TO BEGIN YOUR JOURNEY ↓
-        </div>
+    z-index: -2;
 
-    </header>
+    pointer-events: none;
 
+    opacity: 0.20;
 
-    <!-- TIME MACHINE SECTION -->
+    background-image:
 
-    <section id="journey" class="journey">
+        radial-gradient(
+            circle at 15px 15px,
+            #a9632b 1.5px,
+            transparent 2px
+        ),
 
-        <p class="section-label">THE TIME MACHINE</p>
+        linear-gradient(
+            45deg,
+            transparent 46%,
+            #d49a4d22 47%,
+            #d49a4d22 53%,
+            transparent 54%
+        );
 
-        <h2>Where would you like to travel?</h2>
+    background-size:
+        42px 42px,
+        84px 84px;
+}
 
-        <p class="section-description">
-            Choose a destination and step into another era of India.
-        </p>
 
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-        <div class="time-machine">
 
-            <div class="machine-icon">
-                ⏳
-            </div>
+/* NAVBAR */
 
-            <h3>SELECT YOUR ERA</h3>
+.navbar {
 
-            <div class="era-buttons">
+    position: sticky;
 
-                <button onclick="selectEra('ancient')">
-                    🏺 ANCIENT INDIA
-                </button>
+    top: 0;
 
-                <button onclick="selectEra('medieval')">
-                    🏰 MEDIEVAL INDIA
-                </button>
+    z-index: 1000;
 
-                <button onclick="selectEra('vijayanagara')">
-                    🛕 VIJAYANAGARA
-                </button>
+    display: flex;
 
-                <button onclick="selectEra('colonial')">
-                    📜 COLONIAL ERA
-                </button>
+    align-items: center;
 
-            </div>
+    gap: 18px;
 
-        </div>
+    padding: 12px 4%;
 
-        <div id="era-result" class="era-result">
+    background: #fffaf0ee;
 
-            <h3>YOUR JOURNEY AWAITS</h3>
+    backdrop-filter: blur(14px);
 
-            <p>
-                Select an era above to begin exploring.
-            </p>
+    border-bottom: 2px solid #e4bd70;
+}
 
-        </div>
 
-    </section>
+.logo {
 
+    font-family: "Playfair Display", serif;
 
-    <!-- DISCOVER SECTION -->
+    font-weight: 800;
 
-    <section class="discover">
+    color: #7e1e39;
 
-        <p class="section-label">MORE THAN DATES</p>
+    white-space: nowrap;
 
-        <h2>Experience History</h2>
+    font-size: 18px;
+}
 
-        <div class="cards">
 
-            <div class="card">
-                <div class="card-icon">🏛️</div>
-                <h3>PLACES</h3>
-                <p>
-                    Walk through ancient cities, magnificent temples
-                    and forgotten kingdoms.
-                </p>
-            </div>
+.navlinks {
 
-            <div class="card">
-                <div class="card-icon">👘</div>
-                <h3>CULTURE</h3>
-                <p>
-                    Discover clothing, food, art, music and traditions
-                    from different eras.
-                </p>
-            </div>
+    display: flex;
 
-            <div class="card">
-                <div class="card-icon">👥</div>
-                <h3>PEOPLE</h3>
-                <p>
-                    Meet the rulers, traders, artists, scholars
-                    and ordinary people of the past.
-                </p>
-            </div>
+    gap: 12px;
 
-            <div class="card">
-                <div class="card-icon">⚔️</div>
-                <h3>STORIES</h3>
-                <p>
-                    Explore the events and decisions that changed
-                    the course of Indian history.
-                </p>
-            </div>
+    justify-content: center;
 
-        </div>
+    flex: 1;
 
-    </section>
+    flex-wrap: wrap;
+}
 
 
-    <!-- QUOTE SECTION -->
+.navlinks a {
 
-    <section class="quote-section">
+    font-size: 11px;
 
-        <div class="big-quote">
-            “A civilization is remembered not only by its monuments,
-            but by the lives that once filled them.”
-        </div>
+    font-weight: 800;
 
-        <p>— INDIA THROUGH TIME</p>
+    color: #52372b;
 
-    </section>
+    transition: 0.2s;
+}
 
 
-    <!-- FOOTER -->
+.navlinks a:hover {
 
-    <footer>
+    color: #b52f42;
 
-        <h3>🇮🇳 INDIA THROUGH TIME</h3>
+}
 
-        <p>
-            Explore. Learn. Remember.
-        </p>
 
-        <p class="copyright">
-            An interactive historical experience.
-        </p>
+/* SEARCH */
 
-    </footer>
+.search {
 
+    display: flex;
 
-    <script src="script.js"></script>
+    background: white;
 
-</body>
-</html>
+    border: 1px solid #d8b778;
+
+    border-radius: 30px;
+
+    overflow: hidden;
+}
+
+
+.search input {
+
+    width: 125px;
+
+    border: 0;
+
+    outline: 0;
+
+    padding: 8px 10px;
+
+    font-size: 11px;
+}
+
+
+.search button {
+
+    border: 0;
+
+    background: white;
+
+    padding: 0 10px;
+
+    cursor: pointer;
+
+}
+
+
+/* HOME HERO */
+
+.hero {
+
+    min-height: 720px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle,
+            #fff6c9 0%,
+            #ffd16f 30%,
+            #ef8730 62%,
+            #8d2440 100%
+        );
+}
+
+
+.hero::before,
+.hero::after {
+
+    content: "✿  ❈  ✦  ❈  ✿  ❈  ✦  ❈  ✿";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    text-align: center;
+
+    color: #741d3b66;
+
+    font-size: 25px;
+
+    letter-spacing: 8px;
+}
+
+
+.hero::before {
+    top: 25px;
+}
+
+
+.hero::after {
+    bottom: 25px;
+}
+
+
+.hero-content {
+
+    max-width: 900px;
+
+    padding: 80px 25px;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.eyebrow {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: 800;
+
+    color: #702039;
+}
+
+
+.hero h1,
+.hero h2 {
+
+    font-family: "Playfair Display", serif;
+
+    color: #7a1837;
+}
+
+
+.hero h1 {
+
+    font-size: clamp(75px, 14vw, 150px);
+
+    line-height: 0.85;
+
+    margin-top: 18px;
+}
+
+
+.hero h2 {
+
+    font-size: clamp(30px, 6vw, 64px);
+
+    letter-spacing: 8px;
+}
+
+
+.hero-description {
+
+    max-width: 700px;
+
+    margin: 28px auto;
+
+    color: #533326;
+
+    font-size: 15px;
+}
+
+
+.main-button {
+
+    display: inline-block;
+
+    padding: 15px 28px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7d1736,
+            #c53b42
+        );
+
+    color: #fff;
+
+    border-radius: 30px;
+
+    font-size: 12px;
+
+    font-weight: 800;
+
+    box-shadow: 0 12px 30px #60192c44;
+}
+
+
+.mandala {
+
+    position: absolute;
+
+    font-size: 300px;
+
+    color: #8c214033;
+
+    left: -110px;
+
+    top: -70px;
+}
+
+
+.corner {
+
+    position: absolute;
+
+    font-size: 180px;
+
+    color: #8c214033;
+}
+
+
+.corner1 {
+
+    right: -55px;
+
+    top: -50px;
+}
+
+
+.corner2 {
+
+    left: -50px;
+
+    bottom: -70px;
+}
+
+
+/* INTRO */
+
+.intro {
+
+    padding: 85px 6%;
+
+    text-align: center;
+
+    max-width: 900px;
+
+    margin: auto;
+}
+
+
+.label,
+.section-label {
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    font-weight: 800;
+
+    color: #a02b42;
+}
+
+
+.intro h2,
+.section-title h2 {
+
+    font:
+        700 clamp(34px, 6vw, 55px)
+        "Playfair Display",
+        serif;
+
+    color: #4f2a20;
+
+    margin: 8px 0;
+}
+
+
+.intro p:last-child,
+.section-title p:last-child {
+
+    font-size: 14px;
+
+    color: #72584a;
+}
+
+
+/* SECTIONS */
+
+.section {
+
+    padding: 85px 6%;
+}
+
+
+.section-title {
+
+    text-align: center;
+
+    max-width: 850px;
+
+    margin: 0 auto 42px;
+}
+
+
+/* CARD GRID */
+
+.card-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 20px;
+
+    max-width: 1200px;
+
+    margin: auto;
+}
+
+
+.history-card {
+
+    min-height: 250px;
+
+    padding: 28px;
+
+    border-radius: 22px;
+
+    color: #fff;
+
+    box-shadow:
+        0 15px 32px #3c241b20;
+
+    transition: 0.3s;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.history-card:hover {
+
+    transform: translateY(-8px);
+
+}
+
+
+.history-card::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    right: 12px;
+
+    bottom: -25px;
+
+    font-size: 120px;
+
+    opacity: 0.12;
+}
+
+
+.history-card .icon {
+
+    font-size: 42px;
+}
+
+
+.history-card h3 {
+
+    font:
+        700 25px
+        "Playfair Display",
+        serif;
+
+    margin: 8px 0;
+}
+
+
+.history-card p {
+
+    font-size: 12px;
+}
+
+
+.history-card span {
+
+    display: inline-block;
+
+    margin-top: 18px;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    letter-spacing: 1px;
+}
+
+
+/* CARD COLORS */
+
+.orange {
+    background:
+        linear-gradient(135deg,#f3a21d,#d25a2c);
+}
+
+
+.red {
+    background:
+        linear-gradient(135deg,#c83c38,#791a32);
+}
+
+
+.purple {
+    background:
+        linear-gradient(135deg,#925db9,#56358b);
+}
+
+
+.pink {
+    background:
+        linear-gradient(135deg,#ec5d85,#a52b57);
+}
+
+
+.green {
+    background:
+        linear-gradient(135deg,#209873,#07594b);
+}
+
+
+.teal {
+    background:
+        linear-gradient(135deg,#1ca5a8,#245e8e);
+}
+
+
+.violet {
+    background:
+        linear-gradient(135deg,#7943a5,#39215e);
+}
+
+
+.blue {
+    background:
+        linear-gradient(135deg,#278bb1,#254e8d);
+}
+
+
+.gold {
+    background:
+        linear-gradient(135deg,#e2b03b,#98572c);
+}
+
+
+.coral {
+    background:
+        linear-gradient(135deg,#ed695a,#b32e59);
+}
+
+
+.tricolor {
+
+    background:
+        linear-gradient(
+            135deg,
+            #e88720 0 33%,
+            #fff0d0 33% 66%,
+            #16856a 66%
+        );
+
+    color: #51281c;
+}
+
+
+/* QUOTE */
+
+.quote-section {
+
+    padding: 100px 20px;
+
+    text-align: center;
+
+    background: #ffd98e;
+}
+
+
+.quote-section h2 {
+
+    max-width: 900px;
+
+    margin: auto;
+
+    font:
+        italic 700 clamp(28px,5vw,48px)
+        "Playfair Display",
+        serif;
+
+    color: #68263a;
+}
+
+
+.quote-section p {
+
+    margin-top: 18px;
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    font-weight: 800;
+}
+
+
+/* PAGE HERO */
+
+.page-hero {
+
+    padding: 100px 6%;
+
+    text-align: center;
+
+    color: white;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+.page-hero::before {
+
+    content: "✿  ❈  ✦  ❈  ✿";
+
+    position: absolute;
+
+    top: 25px;
+
+    left: 0;
+
+    right: 0;
+
+    font-size: 28px;
+
+    letter-spacing: 12px;
+
+    opacity: 0.35;
+}
+
+
+.page-hero h1 {
+
+    font:
+        700 clamp(45px,8vw,85px)
+        "Playfair Display",
+        serif;
+
+    margin: 25px 0 10px;
+}
+
+
+.page-hero p {
+
+    font-size: 14px;
+
+    color: #fff1df;
+}
+
+
+.page-hero.orange {
+    background: linear-gradient(135deg,#ef9d1d,#b53a49);
+}
+
+
+.page-hero.red {
+    background: linear-gradient(135deg,#b9333c,#501727);
+}
+
+
+.page-hero.purple {
+    background: linear-gradient(135deg,#8148aa,#332157);
+}
+
+
+.page-hero.pink {
+    background: linear-gradient(135deg,#e45077,#76264f);
+}
+
+
+.page-hero.green {
+    background: linear-gradient(135deg,#14866d,#063c38);
+}
+
+
+.page-hero.teal {
+    background: linear-gradient(135deg,#168da5,#244e92);
+}
+
+
+.page-hero.blue {
+    background: linear-gradient(135deg,#168da5,#244e92);
+}
+
+
+.page-hero.gold {
+    background: linear-gradient(135deg,#e4a82d,#94502b);
+}
+
+
+/* CONTENT */
+
+.content {
+
+    max-width: 1150px;
+
+    margin: auto;
+
+    padding: 75px 20px;
+}
+
+
+.info-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 25px;
+}
+
+
+.info-box {
+
+    background: #fffdf7;
+
+    border: 1px solid #dfc69c;
+
+    border-radius: 20px;
+
+    padding: 30px;
+
+    box-shadow:
+        0 10px 25px #4d2b1914;
+}
+
+
+.info-box h2,
+.deep-section h2 {
+
+    font:
+        700 29px
+        "Playfair Display",
+        serif;
+
+    color: #86233d;
+
+    margin-bottom: 12px;
+}
+
+
+.info-box p {
+
+    font-size: 13px;
+
+    color: #665044;
+
+    margin-bottom: 12px;
+}
+
+
+/* FACTS */
+
+.fact-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+
+.fact {
+
+    background: #f5e4c4;
+
+    padding: 14px;
+
+    border-radius: 12px;
+
+    font-size: 11px;
+}
+
+
+.fact strong {
+
+    display: block;
+
+    color: #8a273e;
+
+    font-size: 14px;
+}
+
+
+/* DEEP SECTIONS */
+
+.deep-section {
+
+    margin-top: 35px;
+
+    background: #fffdf7;
+
+    border: 1px solid #dfc69c;
+
+    border-radius: 22px;
+
+    padding: 32px;
+}
+
+
+.deep-section > p {
+
+    font-size: 13px;
+
+    color: #665044;
+}
+
+
+/* TOPIC CARDS */
+
+.topic-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 16px;
+
+    margin-top: 22px;
+}
+
+
+.topic {
+
+    padding: 22px;
+
+    border-radius: 16px;
+
+    background: #fff2d5;
+
+    border: 1px solid #e1c58e;
+}
+
+
+.topic h3 {
+
+    font:
+        700 20px
+        "Playfair Display",
+        serif;
+
+    color: #81233c;
+
+    margin-bottom: 8px;
+}
+
+
+.topic p {
+
+    font-size: 12px;
+
+    color: #685044;
+}
+
+
+/* TERRITORY */
+
+.territory-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+
+.territory {
+
+    padding: 20px;
+
+    border-radius: 17px;
+
+    color: white;
+
+    min-height: 170px;
+}
+
+
+.territory:nth-child(1) {
+    background: #9b2c43;
+}
+
+
+.territory:nth-child(2) {
+    background: #d36c2b;
+}
+
+
+.territory:nth-child(3) {
+    background: #287d75;
+}
+
+
+.territory:nth-child(4) {
+    background: #70479a;
+}
+
+
+.territory span {
+
+    font-weight: 800;
+
+    font-size: 11px;
+}
+
+
+.territory h3 {
+
+    font:
+        700 19px
+        "Playfair Display",
+        serif;
+
+    margin: 8px 0;
+}
+
+
+.territory p {
+
+    font-size: 11px;
+}
+
+
+/* TIMELINE */
+
+.timeline {
+
+    margin-top: 45px;
+}
+
+
+.timeline > h2 {
+
+    text-align: center;
+
+    font:
+        700 38px
+        "Playfair Display",
+        serif;
+
+    color: #61281f;
+
+    margin-bottom: 28px;
+}
+
+
+.timeline-item {
+
+    display: grid;
+
+    grid-template-columns: 125px 1fr;
+
+    gap: 18px;
+
+    margin-bottom: 14px;
+}
+
+
+.year {
+
+    background: #822039;
+
+    color: white;
+
+    border-radius: 14px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    font-weight: 800;
+
+    padding: 14px;
+}
+
+
+.timeline-text {
+
+    background: white;
+
+    border: 1px solid #e0c69c;
+
+    border-radius: 14px;
+
+    padding: 18px;
+}
+
+
+.timeline-text h3 {
+
+    font:
+        700 21px
+        "Playfair Display",
+        serif;
+
+    color: #8a273e;
+}
+
+
+.timeline-text p {
+
+    font-size: 12px;
+
+    color: #6b5345;
+}
+
+
+/* EXAM BOX */
+
+.student-box {
+
+    margin-top: 35px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #fff0b9,
+            #ffe0a0
+        );
+
+    border: 2px dashed #b96d35;
+
+    border-radius: 20px;
+
+    padding: 28px;
+}
+
+
+.student-box h2 {
+
+    font:
+        700 27px
+        "Playfair Display",
+        serif;
+
+    color: #74203b;
+}
+
+
+.student-box li {
+
+    margin: 7px 0;
+
+    font-size: 12px;
+}
+
+
+/* FOOTER */
+
+footer {
+
+    background: #401827;
+
+    color: #fff1dc;
+
+    padding: 50px 7%;
+
+    text-align: center;
+}
+
+
+footer h2 {
+
+    font:
+        700 25px
+        "Playfair Display",
+        serif;
+}
+
+
+footer p {
+
+    font-size: 12px;
+
+    color: #d6bfb0;
+
+    margin-top: 5px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:950px) {
+
+    .card-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .territory-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .topic-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+    .navlinks {
+
+        display: none;
+    }
+
+    .navbar {
+
+        justify-content:
+            space-between;
+    }
+}
+
+
+@media(max-width:650px) {
+
+    .card-grid,
+    .info-grid,
+    .topic-grid,
+    .territory-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .fact-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+    .timeline-item {
+
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+
+        min-height: 620px;
+    }
+
+    .hero h1 {
+
+        font-size: 75px;
+    }
+
+    .hero h2 {
+
+        font-size: 29px;
+
+        letter-spacing: 4px;
+    }
+
+    .content {
+
+        padding: 55px 15px;
+    }
+
+    .search input {
+
+        width: 95px;
+    }
+}
