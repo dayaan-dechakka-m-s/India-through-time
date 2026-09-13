@@ -1,189 +1,324 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* =========================================
+   INDIA THROUGH TIME
+   INTERACTIVE HISTORICAL EXPERIENCE
+   ========================================= */
 
-    <title>India Through Time | Explore the Past</title>
+const eraResult = document.getElementById("era-result");
+const eraContent = document.getElementById("era-content");
 
-    <link rel="stylesheet" href="style.css">
-</head>
 
-<body>
+/* =========================================
+   ENTER TIME MACHINE
+   ========================================= */
 
-    <!-- HERO SECTION -->
+function startJourney() {
 
-    <header class="hero">
+    document.getElementById("journey").scrollIntoView({
+        behavior: "smooth"
+    });
 
-        <div class="hero-content">
+}
 
-            <p class="eyebrow">🇮🇳 AN INTERACTIVE JOURNEY THROUGH HISTORY</p>
 
-            <h1>INDIA<br><span>THROUGH TIME</span></h1>
+/* =========================================
+   ERA INFORMATION
+   ========================================= */
 
-            <p class="hero-description">
-                Step beyond the pages of history.
-                Discover the people, places, cultures and stories
-                that shaped India.
+const eras = {
+
+    ancient: {
+
+        title: "🏺 ANCIENT INDIA",
+
+        text:
+        "Journey into ancient India — a land of early cities, scholars, mathematicians, traders and extraordinary civilizations."
+
+    },
+
+
+    medieval: {
+
+        title: "🏰 MEDIEVAL INDIA",
+
+        text:
+        "Enter medieval India, where powerful kingdoms, bustling markets, magnificent architecture and diverse cultures shaped the subcontinent."
+
+    },
+
+
+    vijayanagara: {
+
+        title: "🛕 VIJAYANAGARA EMPIRE",
+
+        text:
+        "Welcome to the magnificent Vijayanagara Empire. Imagine entering Hampi during the 16th century, when the city was a thriving centre of temples, markets, trade, art and royal life."
+
+    },
+
+
+    colonial: {
+
+        title: "📜 COLONIAL INDIA",
+
+        text:
+        "Step into colonial-era India, a period of major political, economic and social change."
+
+    }
+
+};
+
+
+/* =========================================
+   SELECT ERA
+   ========================================= */
+
+function selectEra(era) {
+
+    const selectedEra = eras[era];
+
+    if (!selectedEra) {
+        return;
+    }
+
+
+    /* Special experience for Vijayanagara */
+
+    if (era === "vijayanagara") {
+
+        eraContent.innerHTML = `
+
+            <p class="section-label">TIME TRAVEL DESTINATION</p>
+
+            <h3>${selectedEra.title}</h3>
+
+            <p class="historical-intro">
+                ${selectedEra.text}
             </p>
 
-            <button class="explore-button" onclick="startJourney()">
-                ⏳ ENTER THE TIME MACHINE
-            </button>
 
-            <p class="quote">
-                “The past is not gone. It lives in the places,
-                traditions and stories we carry forward.”
+            <div class="historical-grid">
+
+                <button onclick="showStory('hampi')">
+                    🛕
+                    <strong>EXPLORE HAMPI</strong>
+                    <span>Walk through the ancient capital.</span>
+                </button>
+
+
+                <button onclick="showStory('royal')">
+                    👑
+                    <strong>ROYAL LIFE</strong>
+                    <span>Discover the world of kings and queens.</span>
+                </button>
+
+
+                <button onclick="showStory('market')">
+                    🛍️
+                    <strong>MARKETS & TRADE</strong>
+                    <span>Explore the bustling bazaars.</span>
+                </button>
+
+
+                <button onclick="showStory('clothing')">
+                    👘
+                    <strong>CLOTHING</strong>
+                    <span>Discover historical fashion.</span>
+                </button>
+
+
+                <button onclick="showStory('food')">
+                    🍚
+                    <strong>FOOD</strong>
+                    <span>Discover what people ate.</span>
+                </button>
+
+
+                <button onclick="showStory('architecture')">
+                    🏗️
+                    <strong>ARCHITECTURE</strong>
+                    <span>Explore the engineering of the empire.</span>
+                </button>
+
+            </div>
+
+
+            <div id="story-box" class="story-box">
+
+                <h4>✨ SELECT AN EXPERIENCE</h4>
+
+                <p>
+                    Choose one of the options above to begin exploring
+                    Vijayanagara.
+                </p>
+
+            </div>
+
+
+            <div class="quiz-box">
+
+                <p class="section-label">TEST YOUR KNOWLEDGE</p>
+
+                <h4>🧠 QUICK HISTORY QUIZ</h4>
+
+                <p>
+                    Which modern location is famous for the remains
+                    of the Vijayanagara capital?
+                </p>
+
+                <button onclick="checkAnswer('hampi')">
+                    A. Hampi
+                </button>
+
+                <button onclick="checkAnswer('delhi')">
+                    B. Delhi
+                </button>
+
+                <button onclick="checkAnswer('mumbai')">
+                    C. Mumbai
+                </button>
+
+                <p id="quiz-result"></p>
+
+            </div>
+
+        `;
+
+    } else {
+
+        eraContent.innerHTML = `
+
+            <p class="section-label">YOUR DESTINATION</p>
+
+            <h3>${selectedEra.title}</h3>
+
+            <p class="historical-intro">
+                ${selectedEra.text}
             </p>
 
-        </div>
+        `;
 
-        <div class="scroll-hint">
-            ↓ SCROLL TO BEGIN YOUR JOURNEY ↓
-        </div>
-
-    </header>
+    }
 
 
-    <!-- TIME MACHINE SECTION -->
+    eraResult.classList.add("show");
 
-    <section id="journey" class="journey">
+    eraResult.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+    });
 
-        <p class="section-label">THE TIME MACHINE</p>
-
-        <h2>Where would you like to travel?</h2>
-
-        <p class="section-description">
-            Choose a destination and step into another era of India.
-        </p>
+}
 
 
-        <div class="time-machine">
+/* =========================================
+   HISTORICAL STORIES
+   ========================================= */
 
-            <div class="machine-icon">
-                ⏳
-            </div>
+function showStory(type) {
 
-            <h3>SELECT YOUR ERA</h3>
-
-            <div class="era-buttons">
-
-                <button onclick="selectEra('ancient')">
-                    🏺 ANCIENT INDIA
-                </button>
-
-                <button onclick="selectEra('medieval')">
-                    🏰 MEDIEVAL INDIA
-                </button>
-
-                <button onclick="selectEra('vijayanagara')">
-                    🛕 VIJAYANAGARA
-                </button>
-
-                <button onclick="selectEra('colonial')">
-                    📜 COLONIAL ERA
-                </button>
-
-            </div>
-
-        </div>
-
-        <div id="era-result" class="era-result">
-
-            <h3>YOUR JOURNEY AWAITS</h3>
-
-            <p>
-                Select an era above to begin exploring.
-            </p>
-
-        </div>
-
-    </section>
+    const storyBox = document.getElementById("story-box");
 
 
-    <!-- DISCOVER SECTION -->
+    const stories = {
 
-    <section class="discover">
+        hampi: {
 
-        <p class="section-label">MORE THAN DATES</p>
+            title: "🛕 WALK THROUGH HAMPI",
 
-        <h2>Experience History</h2>
+            text:
+            "Imagine approaching the city through the rocky landscape of present-day Karnataka. Monumental temples, gateways, markets and royal buildings formed part of a remarkable urban landscape. Hampi today preserves the archaeological remains of this once-powerful capital."
 
-        <div class="cards">
-
-            <div class="card">
-                <div class="card-icon">🏛️</div>
-                <h3>PLACES</h3>
-                <p>
-                    Walk through ancient cities, magnificent temples
-                    and forgotten kingdoms.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">👘</div>
-                <h3>CULTURE</h3>
-                <p>
-                    Discover clothing, food, art, music and traditions
-                    from different eras.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">👥</div>
-                <h3>PEOPLE</h3>
-                <p>
-                    Meet the rulers, traders, artists, scholars
-                    and ordinary people of the past.
-                </p>
-            </div>
-
-            <div class="card">
-                <div class="card-icon">⚔️</div>
-                <h3>STORIES</h3>
-                <p>
-                    Explore the events and decisions that changed
-                    the course of Indian history.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
+        },
 
 
-    <!-- QUOTE SECTION -->
+        royal: {
 
-    <section class="quote-section">
+            title: "👑 ROYAL LIFE",
 
-        <div class="big-quote">
-            “A civilization is remembered not only by its monuments,
-            but by the lives that once filled them.”
-        </div>
+            text:
+            "The Vijayanagara court was associated with kings, nobles, administrators, warriors, artists and scholars. Royal ceremonies and festivals displayed the wealth and power of the empire."
 
-        <p>— INDIA THROUGH TIME</p>
-
-    </section>
+        },
 
 
-    <!-- FOOTER -->
+        market: {
 
-    <footer>
+            title: "🛍️ MARKETS & TRADE",
 
-        <h3>🇮🇳 INDIA THROUGH TIME</h3>
+            text:
+            "Markets were an important part of life in the capital. Traders exchanged valuable goods and the city was connected to wider networks of commerce. Precious stones, textiles, spices and other commodities were among the goods associated with the region's trade."
 
-        <p>
-            Explore. Learn. Remember.
-        </p>
-
-        <p class="copyright">
-            An interactive historical experience.
-        </p>
-
-    </footer>
+        },
 
 
-    <script src="script.js"></script>
+        clothing: {
 
-</body>
-</html>
+            title: "👘 CLOTHING",
+
+            text:
+            "Clothing varied according to occupation, social position, wealth and occasion. Cotton and other textiles were important, while wealthy communities could use finer and more decorated fabrics and jewellery."
+
+        },
+
+
+        food: {
+
+            title: "🍚 FOOD & DAILY LIFE",
+
+            text:
+            "Rice, pulses, vegetables, fruits and spices formed parts of South Indian diets. Food traditions varied across communities, regions and social groups."
+
+        },
+
+
+        architecture: {
+
+            title: "🏗️ ARCHITECTURE",
+
+            text:
+            "Vijayanagara architecture is famous for monumental temple complexes, elaborate gateways, stone structures, water systems and carefully planned spaces. The surviving monuments provide clues about the engineering and artistic traditions of the period."
+
+        }
+
+    };
+
+
+    const story = stories[type];
+
+    if (!story) {
+        return;
+    }
+
+
+    storyBox.innerHTML = `
+
+        <h4>${story.title}</h4>
+
+        <p>${story.text}</p>
+
+    `;
+
+}
+
+
+/* =========================================
+   QUIZ
+   ========================================= */
+
+function checkAnswer(answer) {
+
+    const result = document.getElementById("quiz-result");
+
+    if (answer === "hampi") {
+
+        result.textContent =
+            "🎉 Correct! Hampi is the famous archaeological site associated with the Vijayanagara capital.";
+
+    } else {
+
+        result.textContent =
+            "❌ Not quite! Try again.";
+
+    }
+
+}
